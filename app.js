@@ -67,20 +67,17 @@ function mainMenu(person, people) {
             //! TODO #1: Utilize the displayPerson function //////////////////////////////////////////
             // HINT: Look for a person-object stringifier utility function to help
             let personInfo = displayPerson(person[0]);
-            alert(personInfo);
-            break;
+            return personInfo;
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
             let personFamily = findPersonFamily(person[0], people);
-            alert(personFamily);
-            break;
+            return personFamily;
         case "descendants":
             //! TODO #3: Declare a findPersonDescendants function //////////////////////////////////////////
             // HINT: Review recursion lecture + demo for bonus user story
             let personDescendants = findPersonDescendants(person[0], people);
-            alert(personDescendants);
-            break;
+            return personDescendants;
         case "restart":
             // Restart app() from the very beginning
             app(people);
@@ -138,7 +135,9 @@ function displayPeople(people) {
  * @param {Object} person       A singular object.
  */
 function displayPerson(person) {
-    let personInfo = `First Name: ${person.firstName}\n`;
+    let 
+    personInfo = `ID: ${person.id}\n`;
+    personInfo += `First Name: ${person.firstName}\n`;
     personInfo += `Last Name: ${person.lastName}\n`;
     personInfo += `Gender: ${person.gender}\n`;
     personInfo += `DOB: ${person.dob}\n`;
@@ -190,3 +189,16 @@ function chars(input) {
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
+
+function findPersonFamily(person, people = []) {
+    let 
+    personSpouse = people.currentSpouse;
+    person = [people];
+    if (personSpouse.currentSpouse === person.currentSpouse) {
+        return person;} 
+    for (let i = 0; i < personSpouse.currentSpouse; i++) {
+        person = person.concat(
+            findPersonFamily(personSpouse[i]));
+        return person;
+    }
+}
