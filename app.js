@@ -144,6 +144,8 @@ function displayPerson(person) {
     personInfo += `DOB: ${person.dob}\n`;
     personInfo += `Height: ${person.height}\n`;
     personInfo += `Weight: ${person.weight}\n`;
+    personInfo += `Eye Color: ${person.eyeColor}\n`;
+    personInfo += `Occupation: ${person.occupation}\n`;
     //! TODO #1a: finish getting the rest of the information to display //////////////////////////////////////////
     alert(personInfo);
 }
