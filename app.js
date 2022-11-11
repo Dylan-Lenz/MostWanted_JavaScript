@@ -145,7 +145,6 @@ function displayPerson(person) {
     personInfo += `Weight: ${person.weight}\n`;
     personInfo += `Eye Color: ${person.eyeColor}\n`;
     personInfo += `Occupation: ${person.occupation}\n`;
-    //! TODO #1a: finish getting the rest of the information to display //////////////////////////////////////////
     alert(personInfo);
 }
 // End of displayPerson()
@@ -190,15 +189,9 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 
-function findPersonFamily(person, people = []) {
-    let 
-    personSpouse = people.currentSpouse;
-    person = [people];
-    if (personSpouse.currentSpouse === person.currentSpouse) {
-        return person;} 
-    for (let i = 0; i < personSpouse.currentSpouse; i++) {
-        person = person.concat(
-            findPersonFamily(personSpouse[i]));
-        return person;
-    }
-}
+function findPersonFamily(personObj={},peopleArr=[]) {
+    let foundSpouse = findById(personObj,peopleArr,"currentSpouse");
+
+function findById(personObj,peopleArr,personPropStr) {
+    return peopleArr.filter(function(item){
+        return(personObj[personPropStr] === item.id)})}
