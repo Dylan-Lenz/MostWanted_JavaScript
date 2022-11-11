@@ -192,6 +192,7 @@ function chars(input) {
 function findPersonFamily(personObj={},peopleArr=[]) {
     let foundSpouse = findById(personObj,peopleArr,"currentSpouse");
     let foundParents = findParents(personObj,peopleArr);
+    let foundSiblings = findSiblings(personObj,peopleArr);
 
 function findById(personObj,peopleArr,personPropStr) {
     return peopleArr.filter(function(item){
@@ -200,3 +201,8 @@ function findById(personObj,peopleArr,personPropStr) {
 function findParents(personObj,peopleArr){
     return peopleArr.filter(function(item){
         return personObj.parents.includes(item.id)})}
+
+function findSiblings(personObj, peopleArr){
+    return peopleArr.filter(function(item){
+        return personObj.parents.includes(item.parents[0]) 
+        || personObj.parents.includes(item.parents[1])})}
