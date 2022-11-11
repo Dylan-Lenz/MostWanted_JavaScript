@@ -193,9 +193,9 @@ function findPersonFamily(personObj={},peopleArr=[]) {
     let foundSpouse = findById(personObj,peopleArr,"currentSpouse");
     let foundParents = findParents(personObj,peopleArr);
     let foundSiblings = findSiblings(personObj,peopleArr);
-    let familyInfo = `Spouse: ${display(foundSpouse)}\n`;
-        familyInfo += `Parents: ${display(foundParents)}\n`;
-        familyInfo += `Siblings: ${display(foundSiblings)}\n`;
+    let familyInfo = `Spouse:\n${display(foundSpouse)}\n`;
+        familyInfo += `Parents:\n${display(foundParents)}\n`;
+        familyInfo += `Siblings:\n${display(foundSiblings)}\n`;
     alert(familyInfo);}
 
 function findById(personObj,peopleArr,personPropStr) {
