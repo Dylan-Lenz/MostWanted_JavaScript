@@ -218,9 +218,19 @@ function display(people){
 
 function findPersonDescendants(personObj,peopleArr){
     let foundChild = findChild(personObj,peopleArr);
+    let foundGrandChild = findChild(personObj,peopleArr);
     let descInfo = `Children:\n${display(foundChild)}\n`;
+        descInfo += `Grandchildren:\n${display(foundGrandChild)}\n`;
     alert(descInfo)}
 
 function findChild(personObj,peopleArr){
     return peopleArr.filter(function(item){
         return item.parents.includes(personObj.id)})}
+
+function findGrandChild(personObj,peopleArr){
+    findChild(personObj,peopleArr);{
+        return peopleArr.filter(function(item){
+        return item.parents.includes(personObj.id)
+        })
+    }
+}
