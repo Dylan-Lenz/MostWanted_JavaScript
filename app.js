@@ -215,3 +215,12 @@ function display(people){
     return(people.map(function(person){
         return`${person.firstName} ${person.lastName}`;
             }).join("\n"));}
+
+function findPersonDescendants(personObj,peopleArr){
+    let foundChild = findChild(personObj,peopleArr);
+    let descInfo = `Children:\n${display(foundChild)}\n`;
+    alert(descInfo)}
+
+function findChild(personObj,peopleArr){
+    return peopleArr.filter(function(item){
+        return item.parents.includes(personObj.id)})}
