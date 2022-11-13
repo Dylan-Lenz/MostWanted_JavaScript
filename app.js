@@ -235,3 +235,23 @@ function findGrandChild(personObj,peopleArr){
 function singleMultiple(input) {
     return input.toLowerCase() === "single" || input.toLowerCase() === "multiple";
 }
+
+function searchByTraits(peopleArr) {
+    let searchType = promptFor(
+        "Choose a Single or Multiple Trait Search Type. Please Enter 'single' or 'multiple': ",singleMultiple).toLowerCase();
+    let searchResults;
+    switch (searchType) {
+        case "single":
+            let foundProp = propChoice(peopleArr);
+            let propInfo = `People:\n${display(foundProp)}\n`;
+            alert(propInfo)
+            break;
+        case "multiple":
+            propChoices(peopleArr)
+            break;
+        default:
+            searchByTraits(peopleArr);
+            break;
+    }
+    mainMenu(searchResults, peopleArr);
+}
