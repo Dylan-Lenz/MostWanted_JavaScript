@@ -211,8 +211,8 @@ function findSiblings(personObj, peopleArr){
         return personObj.parents.includes(item.parents[0]) 
         || personObj.parents.includes(item.parents[1])})}
 
-function display(people){
-    return(people.map(function(person){
+function display(peopleArr){
+    return(peopleArr.map(function(person){
         return`${person.firstName} ${person.lastName}`;
             }).join("\n"));}
 
@@ -230,7 +230,8 @@ function findChild(personObj,peopleArr){
 function findGrandChild(personObj,peopleArr){
     findChild(personObj,peopleArr);{
         return peopleArr.filter(function(item){
-        return item.parents.includes(personObj.id)
-        })
-    }
+            return item.parents.includes(personObj.id)})}}
+
+function singleMultiple(input) {
+    return input.toLowerCase() === "single" || input.toLowerCase() === "multiple";
 }
