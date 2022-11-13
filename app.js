@@ -32,7 +32,7 @@ function app(people) {
             //! TODO #4: Declare a searchByTraits (multiple traits) function //////////////////////////////////////////
                 //! TODO #4a: Provide option to search for single or multiple //////////////////////////////////////////
             searchResults = searchByTraits(people);
-            break;
+            alert(searchResults)
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
             app(people);
@@ -67,17 +67,17 @@ function mainMenu(person, people) {
             //! TODO #1: Utilize the displayPerson function //////////////////////////////////////////
             // HINT: Look for a person-object stringifier utility function to help
             let personInfo = displayPerson(person[0]);
-            return personInfo;
+            alert(personInfo);
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
             let personFamily = findPersonFamily(person[0], people);
-            return personFamily;
+            alert(personFamily);
         case "descendants":
             //! TODO #3: Declare a findPersonDescendants function //////////////////////////////////////////
             // HINT: Review recursion lecture + demo for bonus user story
             let personDescendants = findPersonDescendants(person[0], people);
-            return personDescendants;
+            alert(personDescendants);
         case "restart":
             // Restart app() from the very beginning
             app(people);
@@ -145,7 +145,7 @@ function displayPerson(person) {
     personInfo += `Weight: ${person.weight}\n`;
     personInfo += `Eye Color: ${person.eyeColor}\n`;
     personInfo += `Occupation: ${person.occupation}\n`;
-    alert(personInfo);
+    return personInfo;
 }
 // End of displayPerson()
 
@@ -196,7 +196,7 @@ function findPersonFamily(personObj={},peopleArr=[]) {
     let familyInfo = `Spouse:\n${display(foundSpouse)}\n`;
         familyInfo += `Parents:\n${display(foundParents)}\n`;
         familyInfo += `Siblings:\n${display(foundSiblings)}\n`;
-    alert(familyInfo);}
+    return familyInfo;}
 
 function findById(personObj,peopleArr,personPropStr) {
     return peopleArr.filter(function(item){
@@ -221,7 +221,7 @@ function findPersonDescendants(personObj,peopleArr){
     let foundGrandChild = findChild(personObj,peopleArr);
     let descInfo = `Children:\n${display(foundChild)}\n`;
         descInfo += `Grandchildren:\n${display(foundGrandChild)}\n`;
-    alert(descInfo)}
+     return descInfo;}
 
 function findChild(personObj,peopleArr){
     return peopleArr.filter(function(item){
@@ -244,8 +244,7 @@ function searchByTraits(peopleArr) {
         case "single":
             let foundProp = propChoice(peopleArr);
             let propInfo = `People:\n${display(foundProp)}\n`;
-            alert(propInfo)
-            break;
+            return propInfo;
         case "multiple":
             propChoices(peopleArr)
             break;
@@ -286,8 +285,7 @@ function propChoices(peopleArr) {
             break;
         case "no":
             let propInfo = `People:\n${display(mainArr)}\n`;
-            alert(propInfo)
-            break;
+            return propInfo;
         default:
             propChoices(peopleArr);
             break;
