@@ -275,3 +275,21 @@ function propChoice(peopleArr = []){
     })
     return mainArr;
 }
+
+function propChoices(peopleArr) {
+    let subArr = propChoice(peopleArr);
+    let mainArr = subArr;
+    let searchType = promptFor("Another Type? Choose 'yes' or 'no': ",yesNo).toLowerCase();
+    switch (searchType) {
+        case "yes":
+            propChoices(mainArr);
+            break;
+        case "no":
+            let propInfo = `People:\n${display(mainArr)}\n`;
+            alert(propInfo)
+            break;
+        default:
+            propChoices(peopleArr);
+            break;
+    }
+}
