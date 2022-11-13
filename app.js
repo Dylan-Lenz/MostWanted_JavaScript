@@ -255,3 +255,23 @@ function searchByTraits(peopleArr) {
     }
     mainMenu(searchResults, peopleArr);
 }
+
+function propChoice(peopleArr = []){
+    let inputProp = prompt("Enter Trait Type: ");
+    let inputVal = prompt("Enter Trait: ");
+    let mainArr = peopleArr.filter(function(item){
+        try {
+            if(item[inputProp]===(inputVal)){
+                return true;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        finally{
+            if(item[inputProp]===parseInt(inputVal)){
+                return true;
+            }
+        } 
+    })
+    return mainArr;
+}
